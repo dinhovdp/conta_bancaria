@@ -48,7 +48,7 @@ public class ContaCorrente extends Conta {
 	@Override
 	public void visualizar() {
 		super.visualizar();
-		System.out.printf("limite da conta: %.2f%n", this.limite);
+		System.out.printf("**		Limite da conta: %.2f%n", this.limite);
 	//23-06	
 		
 		

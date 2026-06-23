@@ -67,13 +67,16 @@ public class Menu {
 		
 		
 		System.out.println("\nSacar R$ 3.000,00 da conta cc1: " + (cc1.sacar(3000.00f) ?
-		"Saque efetuado com sucesso!" : "Saldo Insuficiente | Saldo: "+ cc1.getSaldo()));
+		"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual: "+ cc1.getSaldo()));
 
 		System.out.println("\nSacar R$ 1.000,00 da conta cc1: " + (cc1.sacar(1000.00f) ?
-		"Saque efetuado com sucesso!" + cc1.getSaldo(): "Saldo Insuficiente | Saldo" +cc1.getSaldo()));
+		"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual:" +cc1.getSaldo()));
 
+		//esse comando nao apareceu no console "2.000 depositado" mas aparece no visualizar
+		//entao,  o valor anterior era de 196.000 e foi para 198.000
 		cc1.depositar(2000.00f);
 		cc1.visualizar();
+		
 		
 		while (true) {
 			
