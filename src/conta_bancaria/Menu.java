@@ -3,6 +3,7 @@ package conta_bancaria;
 import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
 
 public class Menu {
 	 public static final String ANSI_RESET = "\u001B[0m";
@@ -20,32 +21,32 @@ public class Menu {
 		/* instanciar Objetos da classe conta
 		 *  nosso objeto sera o c1 , ao colocar c1. (ponto) ira aparecer objetos relacionados
 		 */
-		Conta c1 = new Conta (1, 123, 1, "Isabella", 200000.00f);
+		//Conta c1 = new Conta (1, 123, 1, "Isabella", 200000.00f);
 		
-		Conta c2 = new Conta (1, 123, 2, "Thiago", 200000.00f);
+		//Conta c2 = new Conta (1, 123, 2, "Thiago", 200000.00f);
 		
-		//System.out.println(c1.getTitular());
-		c1.visualizar();
-		c2.visualizar();
+		//System.out.println(c1.getTitular());/
+		//c1.visualizar();
+		//c2.visualizar();
 		
 		/* Alteraçao do saldo
 		 * depois da alteração, usa o visualizar */
 		
-		c1.setSaldo(300000.00f);
-		c1.setTitular("Isabella Bruno");
-		c1.visualizar();
+		//c1.setSaldo(300000.00f);
+		//c1.setTitular("Isabella Bruno");
+		//c1.visualizar();
 		
 		
-		c2.depositar(50000);
-		c2.visualizar();
+		//c2.depositar(50000);
+		//c2.visualizar();
 		
 		
 		//teste se saque
-		System.out.println("Sacar R$ 1.000 da conta c1\n" + (c1.sacar(1000.00f) ? 
-				 "Saque efetuado com sucesso!" : "Saldo Insuficiente"));
+		//System.out.println("Sacar R$ 1.000 da conta c1\n" + (c1.sacar(1000.00f) ? 
+		//		 "Saque efetuado com sucesso!" : "Saldo Insuficiente"));
 		
-		System.out.println("Sacar R$ 1.000.000 da conta c1\n" + (c1.sacar(1000000.00f) ? 
-				 "Saque efetuado com sucesso!" : "Saldo Insuficiente"));
+		//System.out.println("Sacar R$ 1.000.000 da conta c1\n" + (c1.sacar(1000000.00f) ? 
+		//		 "Saque efetuado com sucesso!" : "Saldo Insuficiente"));
 		
 		
 		
@@ -57,7 +58,22 @@ public class Menu {
 		 * condição ? ação se for verdadeiro e : se for falso
 		 */
 		
- 		
+ 		//dia 23-06
+		//vamos instancias a conta corrente
+		
+		//importa o model
+		ContaCorrente cc1 = new ContaCorrente (3, 789, 1, "Raquel", 200000.00f, 2000.00f);
+		cc1.visualizar();
+		
+		
+		System.out.println("\nSacar R$ 3.000,00 da conta cc1: " + (cc1.sacar(3000.00f) ?
+		"Saque efetuado com sucesso!" : "Saldo Insuficiente | Saldo: "+ cc1.getSaldo()));
+
+		System.out.println("\nSacar R$ 1.000,00 da conta cc1: " + (cc1.sacar(1000.00f) ?
+		"Saque efetuado com sucesso!" + cc1.getSaldo(): "Saldo Insuficiente | Saldo" +cc1.getSaldo()));
+
+		cc1.depositar(2000.00f);
+		cc1.visualizar();
 		
 		while (true) {
 			

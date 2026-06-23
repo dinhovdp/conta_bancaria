@@ -102,6 +102,9 @@ public class Conta {
 		/* METODO RELACIONADO AO OBJETO
 		 * 
 		 */
+	
+	//23-06 polimorfismo - sobreescrita de um novo meotodo
+	
 		public void visualizar() {
 			
 			//para facilitar a visualização para o usuario vamos usar...
