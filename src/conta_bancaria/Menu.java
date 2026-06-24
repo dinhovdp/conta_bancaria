@@ -22,6 +22,7 @@ public class Menu {
 		
 		int opcao;
 		
+		//Criar dados de teste
 		criarContasTeste();
 		
 		while (true) {
