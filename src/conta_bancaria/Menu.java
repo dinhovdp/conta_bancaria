@@ -88,29 +88,43 @@ public class Menu {
 					break;
 				case 3:
 					System.out.println("Consultar dados da Conta - por número\n\n");
+				
+					procurarPorNumero();
 					keyPress();
 					break;
 				case 4:
 					System.out.println("Atualizar dados da Conta\n\n");
+				
+					atualizar();
 					keyPress();
 					break;
 				case 5:
 					System.out.println("Apagar a Conta\n\n");
+				
+					deletar();
 					keyPress();
 					break;
 				case 6:
 					System.out.println("Saque\n\n");
+				
+					sacar();
 					keyPress();
 					break;
 				case 7:
 					System.out.println("Depósito\n\n");
+				
+					depositar();
 					keyPress();
 					break;
 				case 8:
 					System.out.println("Transferência entre Contas\n\n");
+				
+					transferi();
 					keyPress();
 					break;
 				default:
+				
+					
 					keyPress();
 					System.out.println("\nOpção Inválida!\n");
 					break;
@@ -120,6 +134,36 @@ public class Menu {
 		
 	}
 	
+		private static void transferi() {
+		// TODO Auto-generated method stub
+		
+	}
+
+		private static void depositar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+		private static void sacar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+		private static void deletar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+		private static void atualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+		private static void procurarPorNumero() {
+		// TODO Auto-generated method stub
+		
+	}
+
 		public static void sobre() {
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto Desenvolvido por: Edson ");
@@ -148,6 +192,7 @@ public class Menu {
 	    	
 	    	System.out.println("Digite o número da agência: ");
 	    	int agencia = leia.nextInt ();
+	    	leia.nextLine();
 	    	
 	    	System.out.println("Digite o nome do Titular da conta: ");
 	    	String titular = leia.nextLine ();
