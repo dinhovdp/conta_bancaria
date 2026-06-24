@@ -9,11 +9,13 @@ import conta_bancaria.repository.ContaRepository;
 public class ContaController implements ContaRepository {
 
 	
+	
 	private List<Conta> listaConta = new ArrayList<Conta>();
 	int numero = 0;
 	
 	
 	@Override
+	//
 	public void listarTodas() {
 		for (var conta : listaConta) {
 			conta.visualizar();
@@ -63,10 +65,16 @@ public class ContaController implements ContaRepository {
 		
 	}
 	
+	
+	
 	//METODO AUXILIAR
 	
 	public int gerarNumero() {
 		return ++ numero;
 	}
-
+	@Override
+	public void gerarNumero(int numero) {
+	    this.numero = numero;
+	}
+	
 }
