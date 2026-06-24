@@ -1,6 +1,11 @@
 package conta_bancaria;
 
 import java.util.Scanner;
+import conta_bancaria.controller.ContaController;
+import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
+import conta_bancaria.util.Cores;
+
 
 public class Menu {
 	 public static final String ANSI_RESET = "\u001B[0m";
@@ -8,12 +13,16 @@ public class Menu {
 	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
 	public static final String ANSI_BLACK_BACKGROUND_BRIGHT = "\033[0;100m";
 	
+	private static final ContaController contaController =  new ContaController();
+
 	public static void main(String[] args) {
 		
 
 		Scanner leia = new Scanner(System.in);
 		
 		int opcao;
+		
+		criarContasTeste();
 		
 		while (true) {
 			
@@ -56,7 +65,9 @@ public class Menu {
 					break;
 				case 2:
 					System.out.println("Listar todas as Contas\n\n");
-
+					
+					listarContas();
+					
 					break;
 				case 3:
 					System.out.println("Consultar dados da Conta - por número\n\n");
@@ -86,16 +97,32 @@ public class Menu {
 					System.out.println("\nOpção Inválida!\n");
 					break;
 			}
+		
 		}
+		
 	}
 	
 	
-    
+		
+	
+	
+	
+	
 	public static void sobre() {
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto Desenvolvido por: Edson ");
 		System.out.println("Generation Brasil - generation@generation.org");
 		System.out.println("github.com/dinhovdp/");
 		System.out.println("*********************************************************");
+	
 	}
-}
+	
+	 public static void criarContasTeste() {
+	    	contaController.cadastrar(new ContaCorrente(contaController.gerarNumero(), 456, 1, "Thuany Silva", 1000000.00f, 100000.00f));
+			contaController.cadastrar(new ContaPoupanca(contaController.gerarNumero(), 456, 2, "Marcia Condarco", 1000000.00f, 10));
+	    }
+	    
+	    public static void listarContas() {
+	    	contaController.listarTodas();
+	    }
+	}
