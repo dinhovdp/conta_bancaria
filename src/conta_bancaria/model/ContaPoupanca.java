@@ -1,35 +1,26 @@
 package conta_bancaria.model;
 
-	public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta{
+
+	private int aniversario; 
 	
+	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, int aniversario) {
+		super(numero, agencia, tipo, titular, saldo);
+		this.aniversario = aniversario;
+	}
 
-    public ContaPoupanca(int numero,
-    					int agencia,
-    					int tipo,
-    					String titular,
-    					float saldo) {
-        
-    	super(numero, agencia, tipo, titular, saldo);
-    }
+	public int getAniversario() {
+		return aniversario;
+	}
 
-    
-    
-    // rendimento simples (teste) valor fixado em 1%
-    //para o usuario cliente não ajustar algo que é de controle interno do banco
-    		public void renderJuros() {
-    			float rendimento = this.getSaldo() * 0.01f;
-    				this.setSaldo(this.getSaldo() + rendimento);
-    				
-    				System.out.println("Rendimento aplicado: " + rendimento);
-    }
+	public void setAniversario(int aniversario) {
+		this.aniversario = aniversario;
+	}
+	
+	@Override
+	public void visualizar() {
+		super.visualizar();
+		System.out.printf("Aniversário da conta: %d%n", this.aniversario);
+	}
 
-     
-    
-    @Override
-    		public void visualizar() {
-    			super.visualizar();
-    				System.out.println("**		Conta Poupança (rendimento 1%)");
-    				
-    				
-    }
 }

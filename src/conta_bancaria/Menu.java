@@ -2,10 +2,6 @@ package conta_bancaria;
 
 import java.util.Scanner;
 
-import conta_bancaria.model.Conta;
-import conta_bancaria.model.ContaCorrente;
-import conta_bancaria.model.ContaPoupanca;
-
 public class Menu {
 	 public static final String ANSI_RESET = "\u001B[0m";
 	public static final String TEXT_CYAN_BOLD_BRIGHT = "\033[1;96m"; 
@@ -13,90 +9,11 @@ public class Menu {
 	public static final String ANSI_BLACK_BACKGROUND_BRIGHT = "\033[0;100m";
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 		Scanner leia = new Scanner(System.in);
 		
 		int opcao;
-		
-		/* instanciar Objetos da classe conta
-		 *  nosso objeto sera o c1 , ao colocar c1. (ponto) ira aparecer objetos relacionados
-		 */
-		//Conta c1 = new Conta (1, 123, 1, "Isabella", 200000.00f);
-		
-		//Conta c2 = new Conta (1, 123, 2, "Thiago", 200000.00f);
-		
-		Conta cc1 = new ContaCorrente (1, 123, 1, "Edson", 10000.00f, 2000.00f);
-		Conta cp1 = new ContaPoupanca (1, 123, 2, "Edson", 5000.00f);
-		//ContaCorrente cc1 = new ContaCorrente (1, 789, 1, "Edson", 200000.00f, 2000.00f);
-				//cc1.visualizar();
-		
-		
-				cc1.visualizar();
-				cp1.visualizar();
-				
-				
-				
-				
-				
-				
-		
-		//System.out.println(c1.getTitular());/
-		//c1.visualizar();
-		//c2.visualizar();
-		
-		/* Alteraçao do saldo
-		 * depois da alteração, usa o visualizar */
-		
-		//c1.setSaldo(300000.00f);
-		//c1.setTitular("Isabella Bruno");
-		//c1.visualizar();
-		
-		
-		//c2.depositar(50000);
-		//c2.visualizar();
-		
-		
-		//teste se saque
-		//System.out.println("Sacar R$ 1.000 da conta c1\n" + (c1.sacar(1000.00f) ? 
-		//		 "Saque efetuado com sucesso!" : "Saldo Insuficiente"));
-		
-		//System.out.println("Sacar R$ 1.000.000 da conta c1\n" + (c1.sacar(1000000.00f) ? 
-		//		 "Saque efetuado com sucesso!" : "Saldo Insuficiente"));
-		
-		
-		
-		/* if ternário
-		 * 
-		 * unsado o " ? " irá funcionar como um if
-		 * Usando o " : " ira funcionar como um else 
-		 * 
-		 * condição ? ação se for verdadeiro e : se for falso
-		 */
-		
- 		//dia 23-06
-		//vamos instancias a conta corrente
-		
-		//importa o model
-		
-		//ContaCorrente cc1 = new ContaCorrente (3, 789, 1, "Raquel", 200000.00f, 2000.00f);
-		//cc1.visualizar();
-		
-		
-		
-		//System.out.println("\nSacar R$ 3.000,00 da conta cc1: " + (cc1.sacar(3000.00f) ?
-		//"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual: "+ cc1.getSaldo()));
-
-		//System.out.println("\nSacar R$ 1.000,00 da conta cc1: " + (cc1.sacar(1000.00f) ?
-		//"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual:" +cc1.getSaldo()));
-
-		//esse comando nao apareceu no console "2.000 depositado" mas aparece no visualizar
-		//entao,  o valor anterior era de 196.000 e foi para 198.000
-		//cc1.depositar(2000.00f);
-		//cc1.visualizar();
-		
-		
-		
 		
 		while (true) {
 			
