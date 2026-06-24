@@ -26,6 +26,21 @@ public class Menu {
 		
 		//Conta c2 = new Conta (1, 123, 2, "Thiago", 200000.00f);
 		
+		Conta cc1 = new ContaCorrente (1, 123, 1, "Edson", 10000.00f, 2000.00f);
+		Conta cp1 = new ContaPoupanca (1, 123, 2, "Edson", 5000.00f);
+		//ContaCorrente cc1 = new ContaCorrente (1, 789, 1, "Edson", 200000.00f, 2000.00f);
+				//cc1.visualizar();
+		
+		
+				cc1.visualizar();
+				cp1.visualizar();
+				
+				
+				
+				
+				
+				
+		
 		//System.out.println(c1.getTitular());/
 		//c1.visualizar();
 		//c2.visualizar();
@@ -63,20 +78,24 @@ public class Menu {
 		//vamos instancias a conta corrente
 		
 		//importa o model
-		ContaCorrente cc1 = new ContaCorrente (3, 789, 1, "Raquel", 200000.00f, 2000.00f);
-		cc1.visualizar();
+		
+		//ContaCorrente cc1 = new ContaCorrente (3, 789, 1, "Raquel", 200000.00f, 2000.00f);
+		//cc1.visualizar();
 		
 		
-		System.out.println("\nSacar R$ 3.000,00 da conta cc1: " + (cc1.sacar(3000.00f) ?
-		"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual: "+ cc1.getSaldo()));
+		
+		//System.out.println("\nSacar R$ 3.000,00 da conta cc1: " + (cc1.sacar(3000.00f) ?
+		//"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual: "+ cc1.getSaldo()));
 
-		System.out.println("\nSacar R$ 1.000,00 da conta cc1: " + (cc1.sacar(1000.00f) ?
-		"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual:" +cc1.getSaldo()));
+		//System.out.println("\nSacar R$ 1.000,00 da conta cc1: " + (cc1.sacar(1000.00f) ?
+		//"Saque efetuado com sucesso! \nSaldo atual: " + cc1.getSaldo(): "Saldo Insuficiente | Saldo atual:" +cc1.getSaldo()));
 
 		//esse comando nao apareceu no console "2.000 depositado" mas aparece no visualizar
 		//entao,  o valor anterior era de 196.000 e foi para 198.000
-		cc1.depositar(2000.00f);
-		cc1.visualizar();
+		//cc1.depositar(2000.00f);
+		//cc1.visualizar();
+		
+		
 		
 		
 		while (true) {

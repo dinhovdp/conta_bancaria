@@ -1,61 +1,35 @@
 package conta_bancaria.model;
 
-public class ContaPoupanca extends Conta {
-private float poupanca;
-
-
-	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, float poupanca) {
-		super(numero, agencia, tipo, titular, saldo);
-	
-	}
-	
-	
-	public float getPoupanca() {
-		return poupanca;
-	}
-
-	public void setPoupanca(float limite) {
-		this.poupanca = poupanca;
-	}
-	
-	
+	public class ContaPoupanca extends Conta {
 	
 
-	//23-06
-	//Aqui, estamos estanciando o limite para que o saque possa ficar negativo
-	
-	@Override
-	public boolean sacar (float valor) {
-		
-		
-		//(soma do saldo + limite de credito) tem que ser menor que o < valor do saque
-		if ((this.getSaldo () + this.poupanca) < valor)
-			return false;
-		
-		//aqui ele ira pegar a situacao de cima e subtrair o saldo pelo valor do saque
-		this.setSaldo (this.getSaldo() - valor);
-		return true;
-		//23-06
-		
-	}
-	
-	//estanciar objetos na classe conta
-		
-	//adicionando polimorfismo, significa que pode adicionar um novo metodo
-	//entao, ele consegue adicionar essa nova funcionalidade sem mudar diretamente.
-	
-	
-	@Override
-	public void visualizar() {
-		super.visualizar();
-		System.out.printf("**		Saldo da conta poupança: %.2f%n", this.poupanca);
-	//23-06	
-		
-	}
-	
-	
+    public ContaPoupanca(int numero,
+    					int agencia,
+    					int tipo,
+    					String titular,
+    					float saldo) {
+        
+    	super(numero, agencia, tipo, titular, saldo);
+    }
+
+    
+    
+    // rendimento simples (teste) valor fixado em 1%
+    //para o usuario cliente não ajustar algo que é de controle interno do banco
+    		public void renderJuros() {
+    			float rendimento = this.getSaldo() * 0.01f;
+    				this.setSaldo(this.getSaldo() + rendimento);
+    				
+    				System.out.println("Rendimento aplicado: " + rendimento);
+    }
+
+     
+    
+    @Override
+    		public void visualizar() {
+    			super.visualizar();
+    				System.out.println("**		Conta Poupança (rendimento 1%)");
+    				
+    				
+    }
 }
-
-	
-	
-	
