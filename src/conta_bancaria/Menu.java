@@ -59,7 +59,7 @@ public class Menu {
 								
 				}catch(InputMismatchException e) {
 				opcao = -1;
-				System.out.println("Digite um número inteiro entre 0 e 8");
+				System.out.println("Digite um número inteiro entre 0 e 9");
 				leia.nextLine();
 				
 				}
@@ -128,6 +128,7 @@ public class Menu {
 				break;
 				
 			default:
+				
 					keyPress();
 					System.out.println("\nOpção Inválida!\n");
 					break;
@@ -182,7 +183,7 @@ public class Menu {
 			case 1 ->{
 				System.out.println("Digite o limite da conta: ");
 				float limite = leia.nextFloat();
-				keyPress();
+				leia.nextLine();
 				
 				contaController.cadastrar(
 						new ContaCorrente(contaController.gerarNumero(), agencia, tipo, titular, saldo, limite));
@@ -190,7 +191,7 @@ public class Menu {
 			case 2 -> {
 				System.out.println("Digite o dia do aniversário da conta: ");
 				int aniversario = leia.nextInt();
-				keyPress();
+				leia.nextLine();
 				
 				contaController.cadastrar(
 						new ContaPoupanca(contaController.gerarNumero(), agencia, tipo, titular, saldo, aniversario));
@@ -231,7 +232,7 @@ public class Menu {
 	    		System.out.println("\nOperação cancelada!");
 
 	    		}else {
-	    		System.out.printf("\nAconta número %d bnão foi encontrada!");
+	    			System.out.printf("\nA conta número %d não foi encontrada!", numero);
 	    	}
 	    	
 }
@@ -260,7 +261,7 @@ public class Menu {
 	    			
 	    			// if ternario é o " ? "			Integer converte pra inteiro
 	    			agencia = entrada.isEmpty() ? agencia : Integer.parseInt(entrada);
-	    			System.out.println(agencia);
+	    			
 	    			
 	    //**********************************************************************************			
 
@@ -303,9 +304,9 @@ public class Menu {
 	    				int aniversario = contaPoupanca.getAniversario();
 
 	    				// Atualiza o aniversario ou mantém o valor atual
-	    				System.out.printf("Dia do aniversario atual: %.2d"
-	    				+ "%nDigite o novo dia do aniversario da conta"
-	    				+ "(Pressione ENTER para manter o valor atualizar", aniversario);
+	    				System.out.printf("Dia do aniversario atual: %d"
+	    				+ "%nDigite o novo dia do aniversario da conta."
+	    				+ "(%nPressione ENTER para manter o valor atualizar)", aniversario);
 	    				entrada = leia.nextLine();
 
 	    				aniversario = entrada. isEmpty() ? aniversario : Integer.parseInt(entrada);
@@ -327,51 +328,54 @@ public class Menu {
 }
 	    	
 	    	public static void sacar() {
-
+	    		
 	    		System.out.println("Digite o número da conta: ");
 	    		int numero = leia.nextInt();
-
+	    		
 	    		System.out.println("Digite o valor do saque: ");
 	    		float valor = leia.nextFloat();
-	    		
 	    		leia.nextLine();
-	    		contaController.sacar(numero, valor);
 	    		
-	    	}
-	    	public static void depositar() {
-
-	    		System.out.println("Digite o número da conta: ");
-	    		int numero = leia.nextInt();
-
-	    		System.out.println("Digite o valor do depósito: ");
-	    		float valor = leia.nextFloat();
+	    		contaController.sacar(numero, valor);		
 	    		
-	    		leia.nextLine();
-	    		contaController.depositar(numero, valor);
 	    	}
 	    	
-	    		public static void transferir() {
-
-	    			System.out.println("Digite o número da conta de origem: ");
-	    			int numeroOrigem = leia.nextInt();
-
-	    			System.out.println("Digite o número da conta de destino: ");
-	    			int numeroDestino = leia.nextInt();
-
-	    			System.out.println("Digite o valor da transferência: ");
-	    			float valor = leia.nextFloat();
-	    			
-	    			leia.nextLine();
-	    			contaController.transferir(numeroOrigem, numeroDestino, valor);	
-	    			
-	    		}
+	    	public static void depositar() {
 	    		
-	    		public static void listarPorTitular() {
-	    			
-	    			System.out.println("Digite o nome do Titular: ");
-	    			leia.skip("\\R");
-	    			String titular = leia.nextLine();
-	    			leia.nextLine();
-	    			contaController.listarPorTitular(titular);
-}
-}
+	    		System.out.println("Digite o número da conta: ");
+	    		int numero = leia.nextInt();
+	    		
+	    		System.out.println("Digite o valor do depósito: ");
+	    		float valor = leia.nextFloat();
+	    		leia.nextLine();
+	    		
+	    		contaController.depositar(numero, valor);		
+	    		
+	    	}
+	    	
+	    	public static void transferir() {
+	    		
+	    		System.out.println("Digite o número da conta de origem: ");
+	    		int numeroOrigem = leia.nextInt();
+	    		
+	    		System.out.println("Digite o número da conta de destino: ");
+	    		int numeroDestino = leia.nextInt();
+	    		
+	    		System.out.println("Digite o valor da transferência: ");
+	    		float valor = leia.nextFloat();
+	    		leia.nextLine();
+
+	    		contaController.transferir(numeroOrigem, numeroDestino, valor);		
+	    		
+	    	}
+	    	
+	    	public static void listarPorTitular(){
+	    		
+	    		System.out.println("Digite o nome do titular da conta: ");
+	    		String titular = leia.nextLine();
+	    		
+	    		contaController.listarPorTitular(titular);
+	    		
+	    	}
+
+	    }
