@@ -32,11 +32,11 @@ public class Menu {
 		while (true) {
 			
 			System.out.println(ANSI_BLACK_BACKGROUND);
-			System.out.println("***************************************************" );
+			System.out.println("*******************************************************" );
 			System.out.println("                                                     ");
 			System.out.println("                BANCO DO BRAZIL COM Z                " );
 			System.out.println("                                                     ");
-			System.out.println("***************************************************");
+			System.out.println("*******************************************************");
 			System.out.println( ANSI_BLACK_BACKGROUND + TEXT_CYAN_BOLD_BRIGHT );
 			System.out.println("          1 - Criar Conta                          ");
 			System.out.println("          2 - Listar todas as Contas               ");
@@ -46,17 +46,17 @@ public class Menu {
 			System.out.println("          6 - Sacar                                ");
 			System.out.println("          7 - Depositar                            ");
 			System.out.println("          8 - Transferir valores entre Contas      ");
+			System.out.println("          9 - Consultar por nome do Titular	       ");
 			System.out.println("          0 - Sair          	    		"+ ANSI_RESET );
 			System.out.println(ANSI_BLACK_BACKGROUND );
-			System.out.println("***************************************************");
+			System.out.println("*******************************************************");
 			System.out.println("Entre com a opção desejada:                        ");
 			System.out.println("                                                   ");
 
 			try {
 				opcao = leia.nextInt();
 				leia.nextLine();
-				
-				
+								
 				}catch(InputMismatchException e) {
 				opcao = -1;
 				System.out.println("Digite um número inteiro entre 0 e 8");
@@ -64,69 +64,70 @@ public class Menu {
 				
 				}
 				
-			
-			
-
 			if (opcao == 0) {
 				System.out.println("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
 				sobre();
-                 leia.close();
+                leia.close();
 				System.exit(0);
 			}
 
 			switch (opcao) {
-				case 1:
+			case 1:
 					System.out.println("Criar Conta\n\n");
 				    cadastrarConta();
 				    keyPress();
 				    break;
 					
 					
-				case 2:
+			case 2:
 					System.out.println("Listar todas as Contas\n\n");
-					
 					listarContas();
 					keyPress();
 					break;
-				case 3:
+					
+			case 3:
 					System.out.println("Consultar dados da Conta - por número\n\n");
-				
-					procurarPorNumero();
+					procurarContaPorNumero();
 					keyPress();
 					break;
-				case 4:
+					
+			case 4:
 					System.out.println("Atualizar dados da Conta\n\n");
-				
 					atualizarConta();
 					keyPress();
 					break;
-				case 5:
+					
+			case 5:
 					System.out.println("Apagar a Conta\n\n");
-				
 					deletarConta();
 					keyPress();
 					break;
-				case 6:
+					
+			case 6:
 					System.out.println("Saque\n\n");
-				
 					sacar();
 					keyPress();
 					break;
-				case 7:
+					
+			case 7:
 					System.out.println("Depósito\n\n");
-				
 					depositar();
 					keyPress();
 					break;
-				case 8:
+					
+			case 8:
 					System.out.println("Transferência entre Contas\n\n");
-				
-					transferi();
+					transferir();
 					keyPress();
 					break;
-				default:
-				
 					
+			case 9:
+				System.out.println("Consulta por nome do Titular\n\n");
+				listarPorTitular();
+				keyPress();
+				break;
+				
+			default:
 					keyPress();
 					System.out.println("\nOpção Inválida!\n");
 					break;
@@ -136,35 +137,7 @@ public class Menu {
 		
 	}
 	
-		private static void transferi() {
-		// TODO Auto-generated method stub
-		
-	}
 
-		private static void depositar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-		private static void sacar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-		private static void deletar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-		private static void atualizar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-		private static void procurarPorNumero() {
-		// TODO Auto-generated method stub
-		
-	}
 
 		public static void sobre() {
 		System.out.println("\n*********************************************************");
@@ -237,14 +210,14 @@ public class Menu {
 	    	contaController .procurarPorNumero(numero);
 	    }
 	    
-public static void deletarConta() {
+	    public static void deletarConta() {
 	    	
 	    	System.out.println("Digite o número da conta: ");
 	    	int numero = leia.nextInt();
 	    			leia.nextLine();
 	    	
 
-	    	Optional<Conta> conta = contaController.buscarnaCollection(numero);
+	    	Optional<Conta> conta = contaController.buscarNaCollection(numero);
 	    	
 	    	if (conta.isPresent()) {
 	    		//Confirmação da Exclusão
@@ -269,7 +242,7 @@ public static void deletarConta() {
 	    		int numero = leia.nextInt();
 	    		leia.nextLine();
 
-	    		Optional<Conta> conta = contaController.buscarnaCollection(numero);
+	    		Optional<Conta> conta = contaController.buscarNaCollection(numero);
 
 	    		if(conta.isPresent()) {
 
@@ -351,5 +324,54 @@ public static void deletarConta() {
 	    
 	    }
 	    
+}
+	    	
+	    	public static void sacar() {
+
+	    		System.out.println("Digite o número da conta: ");
+	    		int numero = leia.nextInt();
+
+	    		System.out.println("Digite o valor do saque: ");
+	    		float valor = leia.nextFloat();
+	    		
+	    		leia.nextLine();
+	    		contaController.sacar(numero, valor);
+	    		
+	    	}
+	    	public static void depositar() {
+
+	    		System.out.println("Digite o número da conta: ");
+	    		int numero = leia.nextInt();
+
+	    		System.out.println("Digite o valor do depósito: ");
+	    		float valor = leia.nextFloat();
+	    		
+	    		leia.nextLine();
+	    		contaController.depositar(numero, valor);
+	    	}
+	    	
+	    		public static void transferir() {
+
+	    			System.out.println("Digite o número da conta de origem: ");
+	    			int numeroOrigem = leia.nextInt();
+
+	    			System.out.println("Digite o número da conta de destino: ");
+	    			int numeroDestino = leia.nextInt();
+
+	    			System.out.println("Digite o valor da transferência: ");
+	    			float valor = leia.nextFloat();
+	    			
+	    			leia.nextLine();
+	    			contaController.transferir(numeroOrigem, numeroDestino, valor);	
+	    			
+	    		}
+	    		
+	    		public static void listarPorTitular() {
+	    			
+	    			System.out.println("Digite o nome do Titular: ");
+	    			leia.skip("\\R");
+	    			String titular = leia.nextLine();
+	    			leia.nextLine();
+	    			contaController.listarPorTitular(titular);
 }
 }
