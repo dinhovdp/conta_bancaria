@@ -23,6 +23,8 @@ public interface ContaRepository {
 	
 	void gerarNumero(int numero);
     int gerarNumero();
+	void transferir(int numeroOrigem, int numeroDestino, float valor);
+	void procurarporNumero(int numero);
 
 	
 }
